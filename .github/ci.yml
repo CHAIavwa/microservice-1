@@ -18,18 +18,3 @@ jobs:
       run: npm test
     - name: Lint code
       run: npm run lint
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker-compose build
-    - docker-compose push
-
-deploy:
-  stage: deploy
-  script:
-    - docker-compose up -d
