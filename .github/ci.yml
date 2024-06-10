@@ -18,3 +18,9 @@ jobs:
       run: npm test
     - name: Lint code
       run: npm run lint
+- name: SonarQube Scan
+  run: sonar-scanner \
+    -Dsonar.projectKey=my-project \
+    -Dsonar.sources=. \
+    -Dsonar.host.url=http://localhost:9000 \
+    -Dsonar.login=${{ secrets.SONAR_TOKEN }}
