@@ -1,0 +1,17 @@
+version: '3'
+services:
+  microservice-1:
+    image: microservice-1:latest
+    build: ./microservice-1
+    ports:
+      - "8081:80"
+  microservice-2:
+    image: microservice-2:latest
+    build: ./microservice-2
+    ports:
+      - "8082:80"
+  apigateway:
+    image: apigateway:latest
+    build: ./apigateway
+    ports:
+      - "8080:80"
